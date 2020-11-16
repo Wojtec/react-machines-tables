@@ -29,7 +29,7 @@ const PriceFilter = (props) => {
 
   return (
     <Form onSubmit={(e) => handleSubmit(e)}>
-      <p>Filter by price from 32 to 6000</p>
+      <p>Filter by price</p>
       <FormGroup>
         <Label>
           from:
