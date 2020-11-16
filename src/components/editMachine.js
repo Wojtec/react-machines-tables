@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { getMachineById, updateMachine } from "../actions";
 import CreateMachineJSX from "./createMachines/createMachine";
 
+//EDIT MACHINE COMPONENT
+
 const initValue = {
   id: "",
   brand: "",
@@ -18,7 +20,7 @@ class EditMachine extends Component {
   state = {
     value: initValue,
   };
-
+  //set data to state when component is mounted
   componentDidMount = async () => {
     const { id } = this.props;
     const machine = await getMachineById(id);
@@ -31,10 +33,11 @@ class EditMachine extends Component {
       i.id = machine.images[index].id;
       i.type = machine.images[index].type;
       i.url = machine.images[index].url;
+      return null;
     });
     this.setState({ value: initValue });
   };
-
+  //make action when component get props
   componentWillReceiveProps = async (nextProps) => {
     const { edit, editResult } = this.props;
     if (nextProps.edit !== edit) {
@@ -44,7 +47,7 @@ class EditMachine extends Component {
       }
     }
   };
-
+  //handle submit
   handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -65,7 +68,7 @@ class EditMachine extends Component {
 
     return;
   };
-
+  //handle inputs on change
   handleInput = (event) => {
     const { id } = this.props;
     const target = event.target;
@@ -93,13 +96,11 @@ class EditMachine extends Component {
   render() {
     const { value } = this.state;
     return (
-      <div>
-        <CreateMachineJSX
-          value={value}
-          handleInput={this.handleInput}
-          handleSubmit={this.handleSubmit}
-        ></CreateMachineJSX>
-      </div>
+      <CreateMachineJSX
+        value={value}
+        handleInput={this.handleInput}
+        handleSubmit={this.handleSubmit}
+      ></CreateMachineJSX>
     );
   }
 }

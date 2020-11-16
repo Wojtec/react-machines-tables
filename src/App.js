@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./App.css";
 import ListMachines from "./components/listMachines.js";
-import Modal from "./components/Modal";
+import Modal from "./components/Modal/Modal";
 
 function App() {
   const [machineId, setMachineId] = useState("");
@@ -11,6 +11,7 @@ function App() {
 
   const [click, setClick] = useState(false);
 
+  //hande id of machine and send to modal
   const machineModal = (id) => {
     if (!showMachine) {
       setMachineId(id);
@@ -20,10 +21,12 @@ function App() {
     return setClick(!click);
   };
 
+  //handle id to buttons on table elements
   const setId = (id) => {
     setMachineId(id);
   };
 
+  //show modal state
   const clickModal = () => {
     if (showMachine) {
       setShowMachine(!showMachine);
@@ -31,6 +34,7 @@ function App() {
     return setClick(!click);
   };
 
+  //handle update content state
   const updateContent = () => {
     return setUpdate(!update);
   };

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 
+//BRAND FILTER COMPONENT
+
 const BrandFilter = (props) => {
   const [brandValue, setBrandValue] = useState("");
 
+  //Handle submit
   const handleSubmit = (event) => {
     event.preventDefault();
     const { setBrand } = props;
@@ -12,6 +15,7 @@ const BrandFilter = (props) => {
     return;
   };
 
+  //Handle input brand on change
   const handleBrandFrom = (event) => {
     return setBrandValue(event.target.value);
   };

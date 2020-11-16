@@ -1,5 +1,7 @@
 import axios from "axios";
 
+//API CONSUMING
+
 const BASE_URL = "https://poninski-symfony.herokuapp.com";
 
 export const getMachines = () => {
@@ -17,7 +19,6 @@ export const createMachine = (machine) => {
 };
 
 export const updateMachine = (machine) => {
-  console.log(machine.id);
   return axios
     .patch(`${BASE_URL}/api/v1/getAllMachines/${machine.id}`, machine)
     .then((res) => {

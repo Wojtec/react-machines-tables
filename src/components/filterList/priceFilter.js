@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
+//PRICE FILTER COMPONENT
+
 const PriceFilter = (props) => {
   const [valueOne, setValueOne] = useState("");
   const [valueTwo, setValueTwo] = useState("");
 
+  //Handle submit
   const handleSubmit = (event) => {
     event.preventDefault();
     const { setPrice } = props;
@@ -15,6 +18,7 @@ const PriceFilter = (props) => {
     return;
   };
 
+  //Handle input on change
   const handleFrom = (event) => {
     if (event.target.name === "From") {
       return setValueOne(event.target.value);

@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import CreateMachine from "./createMachines";
+import CreateMachine from "../createMachines";
 import CardMachine from "./cardMachine";
-import EditMachine from "./editMachine";
+import EditMachine from "../editMachine";
+
+//MODAL WINDOW COMPONENT
 
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
@@ -14,27 +16,35 @@ const ModalWindow = (props) => {
   const [submit, setSubmit] = useState(false);
   const [edit, setEdit] = useState(false);
 
+  //open nested modal
   const toggleNested = () => {
     setNestedModal(!nestedModal);
     setCloseAll(false);
   };
+  //close modals
   const toggleAll = () => {
     setNestedModal(!nestedModal);
     setCloseAll(true);
   };
-
+  //open modal
   const toggle = () => setModal(!modal);
 
+  //submit machine for create button
   const submitMachine = () => {
     return setSubmit(!submit);
   };
+
+  //edit machine for change state
   const editMachine = () => {
     return setEdit(!edit);
   };
 
+  //edit results for update content of table
   const editResult = () => {
     return updateContent();
   };
+
+  //use effect for click button
   useEffect(() => {
     return toggle;
   }, [click]);

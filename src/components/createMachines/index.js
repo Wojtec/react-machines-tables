@@ -18,7 +18,7 @@ class NewMachine extends Component {
   state = {
     value: initValue,
   };
-
+  //Make action when component receive props
   componentWillReceiveProps = async (nextProps) => {
     const { submit, editResult } = this.props;
     if (nextProps.submit !== submit) {
@@ -28,7 +28,7 @@ class NewMachine extends Component {
       }
     }
   };
-
+  //Handle submit aciton
   handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -48,12 +48,12 @@ class NewMachine extends Component {
 
     return;
   };
-
+  //Handle input on change
   handleInput = (event) => {
     const target = event.target;
     const name = target.name;
-
     const newSet = { ...this.state.value };
+
     if (name === "thumbnail" || name === "lateral_view") {
       newSet["images"].map((i) => {
         if (name === i.type) {
@@ -75,13 +75,11 @@ class NewMachine extends Component {
   render() {
     const { value } = this.state;
     return (
-      <div>
-        <CreateMachineJSX
-          value={value}
-          handleInput={this.handleInput}
-          handleSubmit={this.handleSubmit}
-        ></CreateMachineJSX>
-      </div>
+      <CreateMachineJSX
+        value={value}
+        handleInput={this.handleInput}
+        handleSubmit={this.handleSubmit}
+      ></CreateMachineJSX>
     );
   }
 }
