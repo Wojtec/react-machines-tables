@@ -23,7 +23,7 @@ class CardMachine extends Component {
   }
 
   //Make action when component receive props
-  componentWillReceiveProps = async (nextProps) => {
+  UNSAFE_componentWillReceiveProps = async (nextProps) => {
     const { id } = this.props.id;
     if (nextProps.id !== id) {
       const machine = await getMachineById(nextProps.id);

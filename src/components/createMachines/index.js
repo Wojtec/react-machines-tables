@@ -18,8 +18,9 @@ class NewMachine extends Component {
   state = {
     value: initValue,
   };
+
   //Make action when component receive props
-  componentWillReceiveProps = async (nextProps) => {
+  UNSAFE_componentWillReceiveProps = async (nextProps) => {
     const { submit, editResult } = this.props;
     if (nextProps.submit !== submit) {
       const create = await createMachine(this.state.value);
@@ -28,6 +29,7 @@ class NewMachine extends Component {
       }
     }
   };
+
   //Handle submit aciton
   handleSubmit = async (event) => {
     event.preventDefault();
@@ -48,6 +50,7 @@ class NewMachine extends Component {
 
     return;
   };
+
   //Handle input on change
   handleInput = (event) => {
     const target = event.target;

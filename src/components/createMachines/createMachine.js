@@ -1,6 +1,8 @@
 import React from "react";
 import { Form, FormGroup, Label, Input } from "reactstrap";
 
+//CREATE MACHINE JSX COMPONENT
+
 const CreateMachineJSX = (props) => {
   const {
     value: { brand, model, manufacturer, price, images },

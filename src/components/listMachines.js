@@ -20,8 +20,9 @@ class ListMachines extends Component {
       machines,
     });
   }
+
   //make action when component receive props
-  componentWillReceiveProps = async (nextProps) => {
+  UNSAFE_componentWillReceiveProps = async (nextProps) => {
     const { update } = this.props;
     if (nextProps.update !== update) {
       const machines = await getMachines();
@@ -31,14 +32,17 @@ class ListMachines extends Component {
       });
     }
   };
+
   //handle brand name imput
   setBrand = (brandName) => {
     this.setState({ brand: brandName, priceFrom: "", priceTo: "" });
   };
+
   //handle price input
   setPrice = (valueOne, valueTwo) => {
     this.setState({ priceFrom: valueOne, priceTo: valueTwo, brand: "" });
   };
+
   //filter by price
   filterByPrice(machines, priceFrom, priceTo) {
     const filterMachines = machines.filter(
@@ -49,12 +53,14 @@ class ListMachines extends Component {
 
     return this.returnMachines(filterMachines);
   }
+
   // filter by brand
   filterByBrand(machines, brand) {
     const filterMachines = machines.filter((m) => m.brand === brand);
 
     return this.returnMachines(filterMachines);
   }
+
   //return content by price or brand or normal
   getAllMachines(machines, priceFrom, priceTo, brand) {
     if (brand) {
@@ -66,6 +72,7 @@ class ListMachines extends Component {
       return this.returnMachines(machines);
     }
   }
+
   //return jsx machines
   returnMachines(machines) {
     const { setId, machineModal } = this.props;

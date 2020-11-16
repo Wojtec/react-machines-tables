@@ -20,6 +20,7 @@ class EditMachine extends Component {
   state = {
     value: initValue,
   };
+
   //set data to state when component is mounted
   componentDidMount = async () => {
     const { id } = this.props;
@@ -37,8 +38,9 @@ class EditMachine extends Component {
     });
     this.setState({ value: initValue });
   };
+
   //make action when component get props
-  componentWillReceiveProps = async (nextProps) => {
+  UNSAFE_componentWillReceiveProps = async (nextProps) => {
     const { edit, editResult } = this.props;
     if (nextProps.edit !== edit) {
       const update = await updateMachine(this.state.value);
@@ -47,6 +49,7 @@ class EditMachine extends Component {
       }
     }
   };
+
   //handle submit
   handleSubmit = async (event) => {
     event.preventDefault();
@@ -68,6 +71,7 @@ class EditMachine extends Component {
 
     return;
   };
+
   //handle inputs on change
   handleInput = (event) => {
     const { id } = this.props;
